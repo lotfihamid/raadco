@@ -25,7 +25,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
     
@@ -37,9 +36,7 @@ jobs:
         username: ${{secrets.RAADCO_USER}}
         script: |
           cd /home/ec2-user/app/raadco
-          touch a_start_process
           pm2 delete all
           git pull 
           npm install
           pm2 start npm -- start
-          touch x_end_process
