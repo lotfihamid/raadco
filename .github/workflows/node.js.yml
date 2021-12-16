@@ -37,7 +37,7 @@ jobs:
         username: ${{secrets.RAADCO_USER}}
         script: |
           pm2 delete all
-          cd ec2-user
+          cd /home/ec2-user/app
           git pull
           npm install
           pm2 start npm -- start
