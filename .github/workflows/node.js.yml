@@ -36,6 +36,7 @@ jobs:
         host: ${{secrets.RAADCO_IP}}
         username: ${{secrets.RAADCO_USER}}
         script: |
+          touch start
           pm2 delete all
           cd /home/ec2-user/app
           git pull
