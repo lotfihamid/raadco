@@ -36,9 +36,10 @@ jobs:
         host: ${{secrets.RAADCO_IP}}
         username: ${{secrets.RAADCO_USER}}
         script: |
-          touch start
+          cd /home/ec2-user/app/raadco
+          touch a_start_process
           pm2 delete all
-          cd /home/ec2-user/app
-          git pull
+          git pull 
           npm install
           pm2 start npm -- start
+          touch x_end_process
